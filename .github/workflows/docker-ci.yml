@@ -17,4 +17,7 @@ jobs:
         run: docker build --tag docker-learn:latest .
 
       - name: Scan image for known vulnerabilities
-        run: docker scout cves docker-learn:latest
+        uses: docker/scout-action@v1
+        with:
+          command: cves
+          image: local://docker-learn:latest
