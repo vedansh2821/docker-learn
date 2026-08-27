@@ -1,0 +1,19 @@
+name: Docker CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Build web image
+        run: docker build --tag docker-learn:latest .
+
+      - name: Scan image for known vulnerabilities
+        run: docker scout cves docker-learn:latest
