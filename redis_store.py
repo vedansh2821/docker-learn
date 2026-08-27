@@ -3,9 +3,8 @@ import os
 import redis
 
 
-redis_client = redis.Redis(
-    host=os.environ.get("REDIS_HOST", "redis"),
-    port=6379,
+redis_client = redis.Redis.from_url(
+    os.environ.get("REDIS_URL", "redis://redis:6379"),
     decode_responses=True,
 )
 

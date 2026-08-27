@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: docker-learn
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: APP_GREETING
+        value: Hello from Render!
+      - key: REDIS_URL
+        sync: false

@@ -15,6 +15,7 @@ class HelloHandler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    server = HTTPServer(("0.0.0.0", 8000), HelloHandler)
-    print("Server running at http://localhost:8000")
+    port = int(os.environ.get("PORT", "8000"))
+    server = HTTPServer(("0.0.0.0", port), HelloHandler)
+    print(f"Server running on port {port}")
     server.serve_forever()
