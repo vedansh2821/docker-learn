@@ -1,4 +1,8 @@
 .env
 .tools/
 __pycache__/
+*.py[cod]
+.venv/
+venv/
 data/
+.DS_Store
